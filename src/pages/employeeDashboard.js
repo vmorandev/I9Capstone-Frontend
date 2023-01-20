@@ -1,11 +1,13 @@
 import React from "react";
+import NavigationBar from "../components/NavBar";
 
-function employeeDashboard() {
+function EmployeeDashboard() {
   return (
     <div>
+      <NavigationBar />
       <h1>Employee Dashboard</h1>
     </div>
   );
 }
 
-export default employeeDashboard;
+export default EmployeeDashboard;

@@ -1,6 +1,6 @@
 import React from "react";
 
-function reviewerDashboard() {
+function ReviewerDashboard() {
   return (
     <div>
       <h1>Reviewer Dashboard</h1>
@@ -8,4 +8,4 @@ function reviewerDashboard() {
   );
 }
 
-export default reviewerDashboard;
+export default ReviewerDashboard;

@@ -32,8 +32,9 @@
   font-weight: 800;
 }
 
-label {
+.label {
   font-size: 14px;
   font-weight: 600;
   color: rgb(34, 34, 34);
 }
+

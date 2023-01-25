@@ -1,13 +1,7 @@
-.container-1{
-    border-radius: 2px;
-    border-color: #7a67ae;
-    background-color: white;
-}
-
 .title {
     text-align: center;
     width: 30vw;
-   
+    background-color: rgb(190, 164, 214);
     padding: 2vw 1vw;
     border-radius: 10px 10px 0 0;
     font-size: 2rem;
@@ -21,7 +15,6 @@
     margin: auto;
     width: 30vw;
     padding: 2vw 1vw;
-    
     border-radius: 0 0 10px 10px;
 }
 
@@ -56,13 +49,7 @@ input {
     margin-bottom: 48px;
     font-family: Inter, Arial;
     font-weight: 500;
-    
 }
-
-.sign-in{
-    text-align: center;
-}
-
 
 .login {
     color: red;
@@ -73,7 +60,7 @@ input {
     justify-content: flex-start;
     align-items: center;
     font-family: Manrope, Arial;
-    font-size: 16px;
+    font-size: 1.875rem;
     font-weight: 700;
     line-height: 36px;
     display: flex;
@@ -101,22 +88,20 @@ input {
     display: flex;
 }
 
-label{
-text-align: left;
-font-size: 16px;
-color: #7a67ae;
-
+label {
+    text-align: left;
+    font-size: 16px;
+    color: #7a67ae;
 }
 
-
 /* CSS */
-#button{
+#button {
     size: 32px;
     font-size: 16px;
     margin-top: 50px;
     color: white;
 }
 
-.dropdown{
+.dropdown {
     font-size: 16px;
 }

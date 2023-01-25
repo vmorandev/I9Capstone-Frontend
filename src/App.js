@@ -1,7 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
-import Auth from "./components/Auth";
 import EmployeeDashboard from "./EmployeeDashboardPage/employeeDashboard";
 import ReviewerDashboard from "./reviewerDashboardPage/reviewerDashboard";
 import ListEmployeeComponent from "./components/ListEmployeeComponent";
@@ -11,6 +10,7 @@ import ManagerDashboard from "./ManagerDashboardPage/managerDashboard";
 import Login from "./pages/Login";
 import I9Form from "./EmployeeDashboardPage/I9Form";
 import UploadComponent from "./components/uploadComponent";
+import RegisterForm from "./pages/registration";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Login />} />
-          <Route path="/auth" element={<Auth />} />
+          <Route path="/register" element={<RegisterForm />}></Route>
           <Route path="/list" element={<ListEmployeeComponent />}></Route>
           <Route path="/add-employee" element={<AddEmployeeComponent />} />
           <Route path="/edit-employee/:id" element={<AddEmployeeComponent />} />

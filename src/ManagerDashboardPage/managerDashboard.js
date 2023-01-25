@@ -1,7 +1,7 @@
 import React from "react";
 import NavigationBar from "../components/NavBar";
 import PageBanner from "../components/PageBanner";
-import "../EmployeeDashboardPage/employeeDashboard.css";
+import "./managerDashboard.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { ReactComponent as Image } from "../assets/forms.svg";
 import { ReactComponent as Avatar } from "../assets/avatar.svg";

@@ -19,10 +19,10 @@ function Login() {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    const userData = JSON.parse(localStorage.getItem(data.email));
+    const userData = JSON.parse(localStorage.getItem(data.username));
     setLoading(true);
 
-    const res = await axios.post("/api/login", data);
+    const res = await axios.post("/capstoneApi/login", data);
     const role = res.data.role;
 
     if (role === "employee") {
@@ -38,12 +38,12 @@ function Login() {
     if (userData) {
       // getItem can return actual value or null
       if (userData.password === data.password) {
-        console.log(userData.name + " You Are Successfully Logged In");
+        console.log(userData.username + " You Are Successfully Logged In");
       } else {
-        console.log("Email or Password is not matching with our record");
+        console.log("Username or Password is not matching with our record");
       }
     } else {
-      console.log("Email or Password is not matching with our record");
+      console.log("Username or Password is not matching with our record");
     }
   };
 
@@ -73,14 +73,13 @@ function Login() {
       <Image />
       <div className="flex-container">
         <span className="adp-onboarding">ADP Onboarding</span>
-        <Container className="container-1">
-          <span className="login-1">
-            <Row className="sign-in">
-              <h3 className="">
-                <b>Sign In</b>
-              </h3>
-            </Row>
-          </span>
+        <Container className="">
+          <Row className="sign-in">
+            <h3>
+              <strong>Sign In</strong>
+            </h3>
+          </Row>
+
           <div className="flex-container-1">
             <form className="App" onSubmit={handleSubmit(onSubmit)}>
               <div className="flex-container-2">
@@ -90,17 +89,17 @@ function Login() {
                 placeholder="Select role"
                 className="dropdown"
   />*/}
-                <label>Email Address:</label>
+                <label>Username:</label>
                 <input
-                  type="email"
-                  name="email"
+                  type="text"
+                  name="username"
                   className="form-control mt-1"
-                  {...register("email", { required: true })}
-                  placeholder="Enter email address"
+                  {...register("username", { required: true })}
+                  placeholder="Enter username"
                 />
 
-                {errors.email && (
-                  <span style={{ color: "red" }}>*Email* is mandatory </span>
+                {errors.username && (
+                  <span style={{ color: "red" }}>*Username* is mandatory </span>
                 )}
                 {/*Begins Password */}
                 <label>Password:</label>

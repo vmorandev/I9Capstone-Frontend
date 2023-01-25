@@ -1,0 +1,22 @@
+.top{
+    margin-top: 10px;
+    margin-bottom: 75px;
+}
+.banner{
+        height: 125px;
+        left: 0px;
+        background: #2B368A;
+        width: auto;
+        text-align: center;
+        color: white;
+        margin: auto;  
+        vertical-align: middle;
+        position: relative;
+}
+.center{
+    line-height: 125px;
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    transform: translate(-50% -50%);
+}

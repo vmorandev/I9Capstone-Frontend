@@ -1,0 +1,30 @@
+[
+  {
+    "country": "United States",
+    "city": "Alpharetta",
+    "state": "GA",
+    "user": "James O'Neal",
+    "role": "Employee"
+  },
+  {
+    "country": "United States",
+    "city": "Miami",
+    "state": "FL",
+    "user": "Earl Garrett",
+    "role": "Auditor"
+  },
+  {
+    "country": "Canada",
+    "city": "Toronto",
+    "state": "Ontario",
+    "user": "Juan Cambell",
+    "role": "Manager"
+  },
+  {
+    "country": "United States",
+    "city": "Tucson",
+    "state": "AZ",
+    "user": "Ana McCarty",
+    "role": "Reviewer"
+  }
+]

@@ -2,12 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { ReactComponent as Image } from "../Assets/Login.svg";
 import Select from "react-dropdown-select";
-import NavigationBar from "../components/NavBar";
-import PageBanner from "../components/PageBanner";
 import "./registration.css";
 
 function RegisterForm() {
-  
   const {
     register,
     handleSubmit,
@@ -59,6 +56,9 @@ function RegisterForm() {
                 placeholder="Select role"
                 className="dropdown"
               />
+
+              {/* Name Inputs */}
+
               <label>First Name:</label>
               <input
                 type="text"
@@ -67,7 +67,9 @@ function RegisterForm() {
                 placeholder="Enter First Name"
               />
               {errors.text && (
-                <span style={{ color: "red" }}>Field is mandatory </span>
+                <span className="ErrorMessage" style={{ color: "red" }}>
+                  Field is mandatory{" "}
+                </span>
               )}
               <label>Last Name:</label>
               <input
@@ -77,8 +79,13 @@ function RegisterForm() {
                 placeholder="Enter Last Name"
               />
               {errors.text && (
-                <span style={{ color: "red" }}>Field is mandatory </span>
+                <span className="ErrorMessage" style={{ color: "red" }}>
+                  Field is mandatory{" "}
+                </span>
               )}
+
+              {/* Username Input */}
+
               <label>Username:</label>
               <input
                 type="text"
@@ -87,8 +94,12 @@ function RegisterForm() {
                 placeholder="Enter Username"
               />
               {errors.text && (
-                <span style={{ color: "red" }}>Field is mandatory </span>
+                <span className="ErrorMessage" style={{ color: "red" }}>
+                  Field is mandatory{" "}
+                </span>
               )}
+              {/* Email Input */}
+
               <label>Email Address:</label>
               <input
                 type="email"
@@ -97,8 +108,13 @@ function RegisterForm() {
                 placeholder="Enter email address"
               />
               {errors.email && (
-                <span style={{ color: "red" }}>*Email* is mandatory </span>
+                <span className="ErrorMessage" style={{ color: "red" }}>
+                  Field is mandatory{" "}
+                </span>
               )}
+
+              {/* Password Input */}
+
               <label>Password:</label>
               <input
                 type="password"
@@ -106,6 +122,11 @@ function RegisterForm() {
                 {...register("password")}
                 placeholder="Enter password"
               />
+              {errors.password && (
+                <span className="ErrorMessage" style={{ color: "red" }}>
+                  Field is mandatory{" "}
+                </span>
+              )}
               <input
                 type={"submit"}
                 style={{ backgroundColor: "#2B368A" }}

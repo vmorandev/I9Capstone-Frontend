@@ -1,6 +1,8 @@
-/*import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EmployeeService from "../services/EmployeeService";
+
+const instance = new EmployeeService();
 
 const ListEmployeeComponent = () => {
   const [employees, setEmployees] = useState([]);
@@ -10,7 +12,8 @@ const ListEmployeeComponent = () => {
   }, []);
 
   const getAllEmployees = () => {
-    EmployeeService.getAllEmployees()
+    instance
+      .getAllEmployees()
       .then((response) => {
         setEmployees(response.data);
         console.log(response.data);
@@ -21,7 +24,8 @@ const ListEmployeeComponent = () => {
   };
 
   const deleteEmployee = (employeeId) => {
-    EmployeeService.deleteEmployee(employeeId)
+    instance
+      .deleteEmployee(employeeId)
       .then((response) => {
         getAllEmployees();
       })
@@ -31,19 +35,23 @@ const ListEmployeeComponent = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="text-center"> List Employees </h2>
+    <div className="container mt-4">
+      <h2 className="text-center">Employee List</h2>
       <Link to="/add-employee" className="btn btn-primary mb-2">
         {" "}
         Add Employee{" "}
       </Link>
       <table className="table table-bordered table-striped">
         <thead>
-          <th> Employee Id </th>
-          <th> Employee First Name </th>
-          <th> Employee Last Name </th>
-          <th> Employee Email Id </th>
-          <th> Actions </th>
+          <th>Employee ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Job Title</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>State</th>
+          <th>Zipcode</th>
+          <th>Country</th>
         </thead>
         <tbody>
           {employees.map((employee) => (
@@ -51,7 +59,12 @@ const ListEmployeeComponent = () => {
               <td> {employee.id} </td>
               <td> {employee.firstName} </td>
               <td>{employee.lastName}</td>
-              <td>{employee.emailId}</td>
+              <td>{employee.job_title}</td>
+              <td>{employee.email}</td>
+              <td>{employee.address}</td>
+              <td>{employee.state}</td>
+              <td>{employee.zipcode}</td>
+              <td>{employee.country}</td>
               <td>
                 <Link
                   className="btn btn-info"
@@ -77,4 +90,3 @@ const ListEmployeeComponent = () => {
 };
 
 export default ListEmployeeComponent;
-*/

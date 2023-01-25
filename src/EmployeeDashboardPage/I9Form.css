@@ -1,0 +1,15 @@
+.container{
+    
+    background: rgba(240, 240, 240, 0.5);
+}
+
+body{
+    background: rgba(240, 240, 240, 0.5);
+}
+
+b, label{
+    color: black;
+}
+
+
+

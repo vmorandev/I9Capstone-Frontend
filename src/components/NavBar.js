@@ -1,16 +1,18 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import "./NavBar.css";
+import logo from "../assets/adpLogo.png";
 
 function NavigationBar() {
   return (
-    <Navbar>
+    <Navbar className="Navbar">
       <Container>
-        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+        <img src={logo} alt="adplogo" id="logo" />
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
+            Welcome, <a href="#login">James Oneal</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

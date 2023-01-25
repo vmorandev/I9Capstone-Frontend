@@ -1,6 +1,6 @@
 import React from "react";
 
-function auditorDashboard(props) {
+function AuditorDashboard() {
   return (
     <div>
       <h1>Auditor Dashboard</h1>
@@ -8,4 +8,4 @@ function auditorDashboard(props) {
   );
 }
 
-export default auditorDashboard;
+export default AuditorDashboard;

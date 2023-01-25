@@ -1,15 +1,19 @@
 import axios from "axios";
 
-const LOGIN_API_REST_URL = "http://localhost:8080/books";
+const Login = "http://localhost:8080/capstone/api/auth";
 
-class APIService {
+class LoginService {
   getUsername(username) {
-    return axios.get(LOGIN_API_REST_URL);
+    return axios.get(Login);
   }
 
   getPassword(password) {
-    return axios.get(LOGIN_API_REST_URL);
+    return axios.get(Login);
+  }
+
+  getRole(role) {
+    return axios.get(Login);
   }
 }
 
-export default new APIService();
+export default LoginService;

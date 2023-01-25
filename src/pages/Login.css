@@ -1,4 +1,7 @@
-
+.container-1{
+    border-radius: 2px;
+    border-color: #7a67ae;
+}
 
 .title {
     text-align: center;
@@ -52,7 +55,14 @@ input {
     margin-bottom: 48px;
     font-family: Inter, Arial;
     font-weight: 500;
+    
 }
+
+.sign-in{
+    text-align: center;
+}
+
+
 .login {
     color: red;
     width: 100%;
@@ -62,7 +72,7 @@ input {
     justify-content: flex-start;
     align-items: center;
     font-family: Manrope, Arial;
-    font-size: 1.875rem;
+    font-size: 16px;
     font-weight: 700;
     line-height: 36px;
     display: flex;

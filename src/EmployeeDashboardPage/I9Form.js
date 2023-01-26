@@ -6,6 +6,16 @@ import "bootstrap/dist/css/bootstrap.css";
 import SignatureCanvas from "react-signature-canvas";
 import "./I9Form.css";
 
+
+function Section1Form() { //Shouldn't this be a function? useForm, LoginSchema and I9Form become undefined with it. 🤔 -DB
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) =>  {
+  const response = await axios.post("/capstoneApi/auth/applicant/formI9/section1", data); //I added tne postmapping link. Idk where to go from there - DB
+
 const LoginSchema = Yup.object().shape({
   lname: Yup.string().required("Last name is required"),
   fname: Yup.string()
@@ -20,8 +30,13 @@ const LoginSchema = Yup.object().shape({
   email: Yup.string().required("Email is required"),
   telephone: Yup.string().required("Telephone number is required"),
   date: Yup.string().required("Date is required"),
-  signature: Yup.string().required("Signature is required"),
-});
+  signature: Yup.string().required("Signature is required")
+})
+  
+
+ 
+}
+
 
 class I9Form extends React.Component {
   render() {
@@ -697,5 +712,5 @@ class I9Form extends React.Component {
     );
   }
 }
-
+}
 export default I9Form;

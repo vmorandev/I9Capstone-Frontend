@@ -20,6 +20,8 @@ function Login() {
 
   const onSubmit = async (data) => {
     const userData = JSON.parse(localStorage.getItem(data.username));
+    // Till the data is fetch using API
+    // the Loading page will show.
     setLoading(true);
 
     const res = await axios.post("/capstoneApi/login", data);

@@ -119,7 +119,7 @@ class I9Form extends React.Component {
                   </div>
                   <Form>
                     {/*Begins Last Name in form*/}
-                    <div className="form-group mt-3">
+                    <div className="form-group">
                       <label htmlFor="lname">Last Name</label>
                       <Field
                         type="text"

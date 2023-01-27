@@ -7,14 +7,14 @@ import SignatureCanvas from "react-signature-canvas";
 import "./I9Form.css";
 
 
-function Section1Form() { //Shouldn't this be a function? useForm, LoginSchema and I9Form become undefined with it. 🤔 -DB
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = async (data) =>  {
-  const response = await axios.post("/capstoneApi/auth/applicant/formI9/section1", data); //I added tne postmapping link. Idk where to go from there - DB
+// function Section1Form() { //Shouldn't this be a function? useForm, LoginSchema and I9Form become undefined with it. 🤔 -DB
+//   const {
+//     register,
+//     handleSubmit,
+//     formState: { errors },
+//   } = useForm();
+//   const onSubmit = async (data) =>  {
+//   const response = await axios.post("/capstoneApi/auth/applicant/formI9/section1", data); //I added tne postmapping link. Idk where to go from there - DB
 
 const LoginSchema = Yup.object().shape({
   lname: Yup.string().required("Last name is required"),
@@ -33,10 +33,6 @@ const LoginSchema = Yup.object().shape({
   signature: Yup.string().required("Signature is required")
 })
   
-
- 
-}
-
 
 class I9Form extends React.Component {
   render() {
@@ -682,7 +678,7 @@ class I9Form extends React.Component {
                     </div>
                     {/*Submit Button for form.*/}
                     <button
-                      type="submit"
+                      type="submit" 
                       className="btn btn-primary btn-block mt-4 mb-5"
                     >
                       Submit
@@ -712,5 +708,5 @@ class I9Form extends React.Component {
     );
   }
 }
-}
+
 export default I9Form;

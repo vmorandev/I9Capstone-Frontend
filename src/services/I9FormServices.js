@@ -7,11 +7,11 @@ class I9Form_Service {
   //Section1
 
   completeSection1(section1_Request) {
-    return axios.get(Section1, section1_Request);
+    return axios.post(Section1, section1_Request);
   }
     //Section2
     completeSection2(section2_Request) {
-      return axios.get(Section2, section2_Request);
+      return axios.post(Section2, section2_Request);
   }
 }
 export default I9Form_Service;

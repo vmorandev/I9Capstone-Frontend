@@ -4,6 +4,7 @@ import { ReactComponent as Image } from "../assets/Login.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./registration.css";
+import { Button } from "react-bootstrap"
 
 //const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -157,7 +158,7 @@ const RegisterForm = () => {
                 <button> <input
                       type={"submit"}
                       style={{ backgroundColor: "#2B368A" }}
-                       id="button" onClick={(e) => saveOrUpdateEmployee(e)}
+                       id="button" 
               /></button>
             </div>
           </form>

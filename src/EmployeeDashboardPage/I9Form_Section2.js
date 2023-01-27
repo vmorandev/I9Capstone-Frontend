@@ -1,46 +1,41 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import * as Yup from "yup";
 import "bootstrap/dist/css/bootstrap.css";
+import parse from "date-fns/parse";i
 import SignatureCanvas from "react-signature-canvas";
 import "./I9Form.css";
 
 const SECTION1_URL = 'http://capstoneApi/auth/applicant/formI9';
 // const I9Form_Section2 = () => {
 
-
 const Section2Schema = Yup.object().shape({
+    employee_Fname: Yup.string().required(),
+    employee_Lname: Yup.string().required(),
+    employee_MI: Yup.string().required(),
+    employee_Citizenship: Yup.string().required(),
+
     listCategory: Yup.string().required(),
     documentTitle: Yup.string().required(),
     issuingAuthority: Yup.string().required(),
     documentNum: Yup.number().required(),
-    // date converted for sql storage
-    expirationDate: Yup.date()
-        .transform(function (value, originalValue) {
-            if (this.isType(value)) {
-                return value;
-            }
-            const result = parse(originalValue, "YYYY-MM-DD", new Date());
-            return result;
-        })
-        .typeError("please enter a valid date")
-        .required()
-        .min("1969-11-13", "Date is too early").required(),
-    employeeStartDate: Yup.string().required("Last name is required"),
-    employerSignature: Yup.string()
-        .max(5, "First name must be 3 characters at minimum")
-        .required("First Name is required"),
-    dateCompleted: Yup.string().required("Street Address is required"),
-    employerTitle: Yup.string().required("City is required"),
-    employer_Lname: Yup.string().required("State is required"),
-    employer_Fname: Yup.string().required("Zipcode is required"),
-    employer_BusinessName: Yup.string().required("Date of Birth is required"),
-    employer_BusinessAddress: Yup.string().required("Social Security is required"),
-    employerCity: Yup.string().required("Email is required"),
-    employerState: Yup.string().required("Telephone number is required"),
-    employerZip: Yup.string().required("Date is required"),
-    signature: Yup.string().required("Signature is required")
+    additional_Info: number().required(),
+    employee_Doh: date().transform(parseDateString).typeError("please enter a valid date").required(),
+    
+    employerSignature: Yup.signature().required(" * Required *"),
+    dateCompleted: Yup.date().transform(parseDateString).typeError("please enter a valid date").required().max(today),
+    employerTitle: Yup.string().required("*Required*"),
+    employer_Lname: Yup.string().required(" * Required *"),
+    employer_Fname: Yup.string().required(" * Required *"),
+    employer_BusinessName: Yup.string().required(" * Required *"),
+    employer_BusinessAddress: Yup.string().required(" * Required *"),
+    employerCity: Yup.string().required(" * Required *"),
+    employerState: Yup.string().required(" * Required *"),
+    employerZip: Yup.string().required(" * Required *")
+   
+    
 
 })
 const options = [
@@ -49,6 +44,10 @@ const options = [
     { value: 3, label: "List C (Employment Authorization)" }
 ];
 const initialValues = {
+    employee_Fname: "",
+    employee_Lname: "",
+    employee_MI: "",
+    employee_Citizenship:"",
     employeeStartDate: "",
     employerSignature: null,
     dateCompleted: "",
@@ -69,9 +68,13 @@ const initialValues = {
             expirationDate: ""
         },
     ]
-
 }
-
+ // date converted for sql storage
+function parseDateString (value, originalValue) {
+    const parseDate = isDate(originalValue)
+    ? originalValue : parse(originalValue, "YYYY-MM-DD", new Date());
+    return parseDate;
+}
 class I9Form_Section2 extends React.Component {
     render() {
         return (

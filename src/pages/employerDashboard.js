@@ -5,6 +5,11 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import "./employerDashboard.css";
 import { ReactComponent as Avatar } from "../Assets/AccountCircle.svg";
 import { ReactComponent as Image } from "../Assets/forms.svg";
+import CalendarComp from "../components/calendar";
+import { Button, Space } from 'antd';
+import ProgressGraph from "../components/ProgressGraph";
+import DeadLine from "../components/DateSelect";
+
 
 function EmployerDashboard() {
   return (
@@ -12,7 +17,7 @@ function EmployerDashboard() {
       <NavigationBar />
       <PageBanner />
       <Container className="Dashboard">
-        <h2>Manager Dashboard</h2>
+        <h2 xs md={3} className="DashboardHeader">Employer Dashboard</h2>
       </Container>
       <Container>
         {" "}
@@ -36,40 +41,55 @@ function EmployerDashboard() {
                   {" "}
                   <p>
                     {" "}
-                    Employee ID
-                    <br /> Form ID
+                    Employee ID:
+                    
                   </p>{" "}
+
                 </Col>{" "}
               </Row>{" "}
+              <Row className="Link mt-3">
+                {" "}
+                <Image className="LinkImage" /><Button type="link" block>
+                  I9 Forms/Documents
+                </Button>
+              </Row>
+              <Row className="Link mt-4">
+                {" "}
+                <Image className="LinkImage" /><Button type="link" block>
+                  Activity Report
+                </Button>
+              </Row>
+              <Row className="Link mt-4">
+                {" "}
+                <Image className="LinkImage" /><Button type="link" block>
+                  Applicant List
+                </Button>
+              </Row>
             </Container>{" "}
           </Col>{" "}
           <Col xs md={9} className="dashboard">
             {" "}
             <Container className="container-2 ">
               {" "}
-              {/* 
               <Row className="mt-5 ms-2 ">
                 {" "}
                 <Col md={3}>
                   {" "}
                   <div>
                     {" "}
-                    <Image /> <h3 className="ms-1 color">Logs/Reports</h3>{" "}
+                    <h4 className="ms-1 color">progress</h4>{" "}
                   </div>{" "}
                 </Col>{" "}
-                <Col md={3}></Col>{" "}
-                <Col md={4}>
-                  {" "}
-                  <h4 className="due"> No activities due.</h4>{" "}
+                <Col md={3}>
+                  
                 </Col>{" "}
-                <Col md={2} className="">
-                  {" "}
-                  <h1 class="completed">3/3</h1> <p>Completed</p>{" "}
-                </Col>{" "}
-              </Row>{" "} 
-              */}
+
+              </Row>{" "}
+              <Row>
+                {/* <DeadLine />             DATE PICKER? */}
+              </Row>
             </Container>{" "}
-            <Container className="ms-5 mt-5">{/* Insert Graph?  */}</Container>{" "}
+            <Container className="ms-5 mt-6"><ProgressGraph /></Container>{" "}
           </Col>{" "}
         </Row>{" "}
       </Container>{" "}

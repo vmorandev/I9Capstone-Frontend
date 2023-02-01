@@ -34,7 +34,7 @@ h3{
 Image{
     display: inline-block;
 }
-Avatar {
+.Avatar {
     display: inline-block;
     vertical-align: middle;
     align-items: center;

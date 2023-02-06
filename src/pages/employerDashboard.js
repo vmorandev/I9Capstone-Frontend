@@ -41,30 +41,12 @@ function EmployerDashboard() {
                   {" "}
                   <p>
                     {" "}
-                    Employee ID:
-                    
+                    Employee ID:5551
+
                   </p>{" "}
 
                 </Col>{" "}
               </Row>{" "}
-              <Row className="Link mt-3">
-                {" "}
-                <Image className="LinkImage" /><Button type="link" block>
-                  I9 Forms/Documents
-                </Button>
-              </Row>
-              <Row className="Link mt-4">
-                {" "}
-                <Image className="LinkImage" /><Button type="link" block>
-                  Activity Report
-                </Button>
-              </Row>
-              <Row className="Link mt-4">
-                {" "}
-                <Image className="LinkImage" /><Button type="link" block>
-                  Applicant List
-                </Button>
-              </Row>
             </Container>{" "}
           </Col>{" "}
           <Col xs md={9} className="dashboard">
@@ -77,19 +59,31 @@ function EmployerDashboard() {
                   {" "}
                   <div>
                     {" "}
-                    <h4 className="ms-1 color">progress</h4>{" "}
+                    <h3 className="ms-1 color">Nav Guide</h3>{" "}
                   </div>{" "}
+
                 </Col>{" "}
                 <Col md={3}>
-                  
+
                 </Col>{" "}
 
               </Row>{" "}
-              <Row>
-                {/* <DeadLine />             DATE PICKER? */}
-              </Row>
+              <Col md={3}>
+                <Row className="Link mt-5">
+                  {" "}
+                  <Image className="LinkImage" /><Button type="link" block>
+                    Activity Log
+                  </Button>
+                </Row>
+                <Row className="Link mt-3">
+                  {" "}
+                  <Image className="LinkImage" /><Button type="link" block>
+                    Employee list
+                  </Button>
+                </Row>
+              </Col>
             </Container>{" "}
-            <Container className="ms-5 mt-6"><ProgressGraph /></Container>{" "}
+
           </Col>{" "}
         </Row>{" "}
       </Container>{" "}

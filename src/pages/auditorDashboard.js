@@ -5,7 +5,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import "./auditorDashboard.css";
 import { ReactComponent as Avatar } from "../Assets/AccountCircle.svg";
 import { ReactComponent as Image } from "../Assets/forms.svg";
-import SearchBar from "../components/SearchBar";
+
 
 function AuditorDashboard() {
   return (
@@ -65,8 +65,45 @@ function AuditorDashboard() {
               </Row>{" "}
             </Container>{" "}
             <Container className="ms-5 mt-5">
-              {/* SEARCH BAR TABLE  */}
-              <SearchBar />
+              <Row>
+                <table class="table">
+                  <thead>
+                    <tr className="color">
+                      <th scope="col">User</th>
+                      <th scope="col">Section 1</th>
+                      <th scope="col">Section 2</th>
+                      <th scope="col">Form ID</th>
+                      <th scope="col">Country</th>
+                      <th scope="col">State</th>
+                      <th scope="col">City</th>
+                      <th scope="col">Reviewer</th>
+                      <th scope="col">Start Date</th>
+                      <th scope="col">E Verify Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </Row>
+              
             </Container>{" "}
           </Col>{" "}
         </Row>{" "}

@@ -68,3 +68,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+### States you must handle, when fetching data
+1. Loading state
+2. Data ready state
+3. Error state
+
+.. if you want a true state machine, you'd need an "idle" state
+4. idle
+
+### Generic Handling of fetching data
+(State Machine)
+
+Step 1:
+On Component mount, fetch data
+
+Step 2
+When component is done fetching data, render data

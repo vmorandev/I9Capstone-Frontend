@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const REPORT_BASE_REST_API_URL = "http://localhost:8080/api/v1/searchbar";
+const REPORT_BASE_REST_API_URL = process.env.REACT_APP_REST_API_URL || ""
 
 class AuditorLogService {
     getAllUser() {

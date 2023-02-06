@@ -50,7 +50,7 @@ function EmployeeDashboard() {
                 </Col>
               </Row>
             </Container>
-            <Container className="ms-5 mt-5">
+            <Container className="ms-4 mt-4">
               <Row>
                 <table class="table">
                   <thead>

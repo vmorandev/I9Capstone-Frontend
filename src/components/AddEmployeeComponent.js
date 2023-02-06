@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import EmployeeService from "../services/EmployeeService";
+import NavigationBar from "../components/NavBar";
+import PageBanner from "../components/PageBanner";
+import { Container } from "react-bootstrap";
 
 const AddEmployeeComponent = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [department, setDepartment] = useState("");
   const [emailId, setEmailId] = useState("");
+  const [startdate, setHireDate] = useState("");
   const history = useNavigate();
   const { id } = useParams();
 
   const saveOrUpdateEmployee = (e) => {
     e.preventDefault();
 
-    const employee = { firstName, lastName, emailId };
+    const employee = { firstName, lastName, department, emailId, startdate };
 
     if (id) {
       EmployeeService.updateEmployee(id, employee)
@@ -40,7 +45,9 @@ const AddEmployeeComponent = () => {
       .then((response) => {
         setFirstName(response.data.firstName);
         setLastName(response.data.lastName);
+        setDepartment(response.data.department);
         setEmailId(response.data.emailId);
+        setHireDate(response.data.startdate);
       })
       .catch((error) => {
         console.log(error);
@@ -57,6 +64,8 @@ const AddEmployeeComponent = () => {
 
   return (
     <div>
+      <NavigationBar />
+      <PageBanner />
       <br />
       <br />
       <div className="container">
@@ -90,6 +99,18 @@ const AddEmployeeComponent = () => {
                 </div>
 
                 <div className="form-group mb-2">
+                  <label className="form-label"> Department :</label>
+                  <input
+                    type="text"
+                    placeholder="Enter Department"
+                    name="department"
+                    className="form-control"
+                    value={department}
+                    onChange={(e) => setDepartment(e.target.value)}
+                  ></input>
+                </div>
+
+                <div className="form-group mb-2">
                   <label className="form-label"> Email Id :</label>
                   <input
                     type="email"
@@ -98,6 +119,18 @@ const AddEmployeeComponent = () => {
                     className="form-control"
                     value={emailId}
                     onChange={(e) => setEmailId(e.target.value)}
+                  ></input>
+                </div>
+
+                <div className="form-group mb-2">
+                  <label className="form-label"> Hire Date :</label>
+                  <input
+                    type="date"
+                    placeholder="Enter Hire Date"
+                    name="startdate"
+                    className="form-control"
+                    value={startdate}
+                    onChange={(e) => setHireDate(e.target.value)}
                   ></input>
                 </div>
 
@@ -111,12 +144,22 @@ const AddEmployeeComponent = () => {
                   {" "}
                   Cancel{" "}
                 </Link>
+
               </form>
             </div>
+
           </div>
         </div>
       </div>
+      <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white-50 mt-5">
+        {" "}
+        <div class="container text-center">
+          {" "}
+          <small>Copyright &copy; Your Website</small>{" "}
+        </div>{" "}
+      </footer>
     </div>
+
   );
 };
 

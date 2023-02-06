@@ -12,7 +12,7 @@ function NavigationBar() {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Welcome, <a href="#login">James Oneal</a>
+            Welcome, <a href="#login">"Personel"</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

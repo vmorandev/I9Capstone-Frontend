@@ -1,6 +1,6 @@
+import { useRef, useState, useEffect } from "react";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
-import { useRef, useState } from "react";
 import Highlighter from "react-highlight-words";
 import './SearchBar.css';
 
@@ -47,6 +47,27 @@ const data = [
 const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [dataToRender, setData] = useState(null)
+
+  useEffect(() => {
+    // fetch data
+    fetchData()
+  }, [])
+
+  async function fetchData() {
+    // here is where we'd fetch data from an api like...
+    try {
+      // let res = await fetch(process.env.REACT_APP_REST_API_URL).then(res => res.json())
+      setData(data)
+      setLoading(false)
+    } catch (err) {
+      console.warn(err)
+      setError('There was an error!')
+    }
+  }
+
   const searchInput = useRef(null);
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
@@ -228,7 +249,11 @@ const SearchBar = () => {
     },
   ];
 
-  return <Table className="SearchTable" columns={columns} dataSource={data} />;
+  if (error) return (<p>{error}</p>)
+  if (loading) return (<p>Loading...</p>)
+
+
+  return <Table className="SearchTable" columns={columns} dataSource={dataToRender} />;
 };
 
 export default SearchBar;

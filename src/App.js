@@ -6,6 +6,7 @@ import Auth from "./components/Auth";
 import EmployerDashboard from "./pages/employerDashboard";
 import EmployerForms from "./pages/EmployerForms";
 import EmpActivityLog from "./pages/EmployerActivity";
+import EmployerList from "./pages/employerList";
 import EmployerSearchbar from "./components/empSearchbar";
 import EmployeeDashboard from "./pages/employeeDashboard";
 import ListEmployeeComponent from "./components/ListEmployeeComponent";
@@ -48,11 +49,13 @@ function App() {
           <Route path="/auditorManager" element={<AuditorManager />} />
           <Route path="/auditor" element={<AuditorDashboard />} />
           <Route path="/employerdashboard" element={<EmployerDashboard />} />
-          <Route path="/empactivitylog" element={<EmpActivityLog />} />
+          <Route path="/employerlog" element={<EmpActivityLog />} />
+          <Route path="/employerList" element={<EmployerList/>} />
           <Route path="/employersearchbar" element={<EmployerSearchbar />} />
           <Route path="/employerforms" element={<EmployerForms />} />
           <Route path="/reviewer" element={<reviewerDashboard />} />
           <Route path="/employee" element={<EmployeeDashboard />} />
+          <Route path="/listemployee" element={<ListEmployeeComponent />} />
           <Route path="/calendar" element={<CalendarComp />} />
           <Route path="/i9form" element={<I9Form />} />
           <Route path="/link" element={<Link />} />

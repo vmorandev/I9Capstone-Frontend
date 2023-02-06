@@ -149,17 +149,6 @@ const Login = () => {
           <div className="flex-container-1">
             <form className="App" onSubmit={handleLogin} ref={form}>
               <div className="flex-container-2 form-group">
-                <select
-                  title="Select Role"
-                  id="dropdown-menu-align-right"
-                  onSelect={onChangeRole}
-                >
-                  <option value="applicant">Applicant</option>
-                  <option value="reviewer">Reviewer</option>
-                  <option value="manager">Manager</option>
-                  <option value="auditor">Auditor</option>
-                </select>
-
                 <label>Username:</label>
                 <input
                   type="text"

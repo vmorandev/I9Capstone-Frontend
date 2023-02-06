@@ -2,12 +2,13 @@
 .top{
     margin-top: 0px;
     margin-bottom: 45px;
+    width: 100%;
 }
 .banner{
         height: 125px;
         left: 0px;
         background: #2B368A;
-        width: auto;
+        width: 100%;
         text-align: center;
         color: white;
         margin: auto;  

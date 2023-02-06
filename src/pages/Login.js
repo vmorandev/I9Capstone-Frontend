@@ -34,6 +34,7 @@ const Login = () => {
     setUsername(username);
   };
 
+<<<<<<< HEAD
   const onChangePassword = (e) => {
     const password = e.target.value;
     setPassword(password);
@@ -48,6 +49,12 @@ const Login = () => {
     e.preventDefault();
 
     //setMessage("");
+=======
+  const onSubmit = async (data) => {
+    const userData = JSON.parse(localStorage.getItem(data.username));
+    // Till the data is fetch using API
+    // the Loading page will show.
+>>>>>>> a2d828929056973da7e6e1158031b83e9e119391
     setLoading(true);
 
     //form.current.validateAll();

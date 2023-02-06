@@ -3,14 +3,16 @@ import { Routes, Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import EmployeeDashboard from "./EmployeeDashboardPage/employeeDashboard";
 import ReviewerDashboard from "./reviewerDashboardPage/reviewerDashboard";
+import ReviewerDashboard2 from "./reviewerDashboardPage/reviewerDashboard2";
 import ListEmployeeComponent from "./components/ListEmployeeComponent";
 import AddEmployeeComponent from "./components/AddEmployeeComponent";
 import AuditorDashboard from "./AuditorDashboardPage/auditorDashboard";
 import ManagerDashboard from "./ManagerDashboardPage/managerDashboard";
-import Login from "./pages/Login";
-import I9Form from "./EmployeeDashboardPage/I9Form";
+import Login from "./pages/Login.js";
+import I9FormSection1 from "./EmployeeDashboardPage/I9FormSection1";
 import UploadComponent from "./components/uploadComponent";
 import RegisterForm from "./pages/registration";
+import UploadFiles from "./components/FileUploader";
 
 function App() {
   return (
@@ -25,9 +27,11 @@ function App() {
           <Route path="/auditor" element={<AuditorDashboard />} />
           <Route path="/manager" element={<ManagerDashboard />} />
           <Route path="/reviewer" element={<ReviewerDashboard />} />
+          <Route path="/reviewer2" element={<ReviewerDashboard2 />} />
           <Route path="/employee" element={<EmployeeDashboard />} />
-          <Route path="/i9form" element={<I9Form />} />
+          <Route path="/i9form" element={<I9FormSection1 />} />
           <Route path="/upload" element={<UploadComponent />} />
+          <Route path="/uploads" element={<UploadFiles />} />
         </Routes>
       </BrowserRouter>
     </div>

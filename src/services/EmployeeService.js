@@ -1,26 +1,43 @@
 import axios from "axios";
 
-const EMPLOYEE_BASE_REST_API_URL = "http://localhost:8080/capstoneApi/login";
-class EmployeeService {
-  getAllEmployees() {
-    return axios.get(EMPLOYEE_BASE_REST_API_URL);
-  }
+const API_URL = "http://localhost:8080/api/auth/";
 
-  createEmployee(employee) {
-    return axios.post(EMPLOYEE_BASE_REST_API_URL, employee);
-  }
+const register = (username, email, password) => {
+  return axios.post(API_URL + "signup", {
+    username,
+    email,
+    password,
+  });
+};
 
-  getEmployeeById(employeeId) {
-    return axios.get(EMPLOYEE_BASE_REST_API_URL + "/" + employeeId);
-  }
+const login = (username, password) => {
+  return axios
+    .post(API_URL + "signin", {
+      username,
+      password,
+    })
+    .then((response) => {
+      if (response.data.accessToken) {
+        localStorage.setItem("user", JSON.stringify(response.data));
+      }
 
-  updateEmployee(employeeId, employee) {
-    return axios.put(EMPLOYEE_BASE_REST_API_URL + "/" + employeeId, employee);
-  }
+      return response.data;
+    });
+};
 
-  deleteEmployee(employeeId) {
-    return axios.delete(EMPLOYEE_BASE_REST_API_URL + "/" + employeeId);
-  }
-}
+const logout = () => {
+  localStorage.removeItem("user");
+};
 
-export default EmployeeService;
+const getCurrentUser = () => {
+  return JSON.parse(localStorage.getItem("user"));
+};
+
+const AuthService = {
+  register,
+  login,
+  logout,
+  getCurrentUser,
+};
+
+export default AuthService;

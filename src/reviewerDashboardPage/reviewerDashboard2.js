@@ -1,12 +1,12 @@
 import React from "react";
 import NavigationBar from "../components/NavBar";
 import PageBanner from "../components/PageBanner";
-import "./managerDashboard.css";
+import "./reviewerDashboard2.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { ReactComponent as Image } from "../assets/forms.svg";
 import { ReactComponent as Avatar } from "../assets/avatar.svg";
 
-function managerDashboard() {
+function reviewerDashboard2() {
   return (
     <div>
       <NavigationBar />
@@ -19,15 +19,12 @@ function managerDashboard() {
                 <Col className="text-center mt-5">
                   <Avatar />
                   <h5 className="employee">Employee Name</h5>
-                  <p>Manager</p>
+                  <p>Role: Reviewer</p>
                 </Col>
               </Row>
               <Row className="text-center mt-2">
                 <Col>
-                  <p>
-                    Employee ID
-                    <br /> Form ID
-                  </p>
+                  <p>Employee ID</p>
                 </Col>
               </Row>
             </Container>
@@ -38,7 +35,7 @@ function managerDashboard() {
                 <Col md={3}>
                   <div>
                     <Image />
-                    <h3 className="ms-1 color">Manager's Dashboard</h3>
+                    <h3 className="ms-1 color">Reviewer's Dashboard</h3>
                   </div>
                 </Col>
                 <Col md={3}></Col>
@@ -63,4 +60,4 @@ function managerDashboard() {
   );
 }
 
-export default managerDashboard;
+export default reviewerDashboard2;

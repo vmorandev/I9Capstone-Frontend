@@ -1,31 +1,63 @@
-import { useForm } from "react-hook-form";
-import React, { useState } from "react";
-import { ReactComponent as Image } from "../assets/Login.svg";
-/*import Select from "react-dropdown-select"; */
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
-import axios from "axios";
+//import CheckButton from "react-validation/build/button";
+//import LoginService from "../services/LoginServices.js";
 import { Container, Row } from "react-bootstrap";
 
-function Login() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+import { ReactComponent as Image } from "../assets/Login.svg";
 
+const required = (value) => {
+  if (!value) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        This field is required!
+      </div>
+    );
+  }
+};
+
+const Login = () => {
+  //method to handle the validation of the Form
+  let navigate = useNavigate();
+
+  const form = useRef();
+  const checkBtn = useRef();
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
   const [loading, setLoading] = useState(false);
+  //const [message, setMessage] = useState("");
 
-  const navigate = useNavigate();
+  const onChangeUsername = (e) => {
+    const username = e.target.value;
+    setUsername(username);
+  };
 
-  const onSubmit = async (data) => {
-    const userData = JSON.parse(localStorage.getItem(data.username));
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+
+  const onChangeRole = (e) => {
+    const role = e.target.value;
+    setRole(role);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    //setMessage("");
     setLoading(true);
 
-    const res = await axios.post("/capstoneApi/login", data);
-    const role = res.data.role;
+    //form.current.validateAll();
 
-    if (role === "employee") {
+    //if (checkBtn.current.context._errors.lenth === 0) {
+    // LoginService.login(username, password, role).then(
+    //   () => {
+    localStorage.setItem("user", JSON.stringify({ user: username, role }));
+
+    if (role === "applicant") {
       navigate("/employee");
     } else if (role === "reviewer") {
       navigate("/reviewer");
@@ -35,39 +67,74 @@ function Login() {
       navigate("/auditor");
     }
 
-    if (userData) {
-      // getItem can return actual value or null
-      if (userData.password === data.password) {
-        console.log(userData.username + " You Are Successfully Logged In");
-      } else {
-        console.log("Username or Password is not matching with our record");
-      }
-    } else {
-      console.log("Username or Password is not matching with our record");
+    // (error) => {
+    //   const resMessage =
+    //     (error.response &&
+    //       error.response.data &&
+    //       error.response.data.message) ||
+    //     error.message ||
+    //     error.toString();
+
+    //   setLoading(false);
+    //   setMessage(resMessage);
+    // }
+    else {
+      setLoading(false);
     }
   };
 
-  /*
-  const options = [
-    {
-      value: 1,
-      label: "Employee",
-    },
-    {
-      value: 2,
-      label: "Reviewer",
-    },
-    {
-      value: 3,
-      label: "Manager",
-    },
-    {
-      value: 4,
-      label: "Auditor",
-    },
-  ];
-  */
+  //method to handle response from the server after the login request is made.
+  // const onSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   //setError("");
+  //   try {
+  //     const res = await axios.post(
+  //       "https://localhost:8082/capstoneApi/login",
+  //       data
+  //     );
+  //     //const { role } = res.data.role;
+  //     localStorage.setItem(
+  //       "user",
+  //       JSON.stringify({ username: username, role })
+  //     );
 
+  //     if (role === "applicant") {
+  //       navigate("/employee");
+  //     } else if (role === "reviewer") {
+  //       navigate("/reviewer");
+  //     } else if (role === "manager") {
+  //       navigate("/manager");
+  //     } else if (role === "auditor") {
+  //       navigate("/auditor");
+  //     }
+  //   } catch (error) {
+  //     if (username && password && role !== data) {
+  //       const [error] = "Username and/or Password are invalid!";
+  //       console.error(error);
+  //     }
+
+  //     //setError(error.res.data);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  /* useEffect(() => {
+      const username = localStorage.getItem("username");
+      const role = localStorage.getItem("role");
+      if (username && role) {
+        if (role === "employee") {
+          navigate("/employee");
+        } else if (role === "reviewer") {
+          navigate("/reviewer");
+        } else if (role === "manager") {
+          navigate("/manager");
+        } else if (role === "auditor") {
+          navigate("/auditor");
+        }
+      }
+    }, []);*/
+  //checks to see if user has already logged in. if yes, then user will be redirected to appropriate page.
   return (
     <div className="login">
       <Image />
@@ -79,47 +146,65 @@ function Login() {
               <strong>Sign In</strong>
             </h3>
           </Row>
-
           <div className="flex-container-1">
-            <form className="App" onSubmit={handleSubmit(onSubmit)}>
-              <div className="flex-container-2">
-                {/*<label>Select your role:</label>
-              <Select
-                options={options}
-                placeholder="Select role"
-                className="dropdown"
-  />*/}
+            <form className="App" onSubmit={handleLogin} ref={form}>
+              <div className="flex-container-2 form-group">
+                <select
+                  title="Select Role"
+                  id="dropdown-menu-align-right"
+                  onSelect={onChangeRole}
+                >
+                  <option value="applicant">Applicant</option>
+                  <option value="reviewer">Reviewer</option>
+                  <option value="manager">Manager</option>
+                  <option value="auditor">Auditor</option>
+                </select>
+
                 <label>Username:</label>
                 <input
                   type="text"
                   name="username"
                   className="form-control mt-1"
-                  {...register("username", { required: true })}
-                  placeholder="Enter username"
+                  value={username}
+                  onChange={onChangeUsername}
+                  validations={[required]}
                 />
 
-                {errors.username && (
-                  <span style={{ color: "red" }}>*Username* is mandatory </span>
-                )}
                 {/*Begins Password */}
-                <label>Password:</label>
-                <input
-                  type="password"
-                  name="password"
-                  className="form-control mt-1"
-                  {...register("password", { required: true })}
-                  placeholder="Enter password"
-                />
-                {errors.password && (
-                  <span style={{ color: "red" }}>*Password* is mandatory </span>
-                )}
+                <div className="form-group">
+                  <label>Password:</label>
+                  <input
+                    type="password"
+                    name="password"
+                    className="form-control mt-1"
+                    value={password}
+                    placeholder="Enter password"
+                    onChange={onChangePassword}
+                    validations={[required]}
+                  />
+                </div>
+
                 {/*Submit Button */}
-                <input
-                  type={"submit"}
-                  style={{ backgroundColor: "#2B368A" }}
-                  id="button"
-                  disabled={loading}
-                />
+                <div className="form-group">
+                  <button
+                    className="btn btn-primary btn-block"
+                    disabled={loading}
+                  >
+                    {loading && (
+                      <span className="spinner-border spinner-border-sm"></span>
+                    )}
+                    <span>Login</span>
+                  </button>
+                </div>
+
+                {/* {message && (
+                  <div className="form-group">
+                    <div className="alert alert-danger" role="alert">
+                      {message}
+                    </div>
+                  </div>
+                )} */}
+                <button style={{ display: "none" }} ref={checkBtn}></button>
               </div>
             </form>
           </div>
@@ -127,6 +212,5 @@ function Login() {
       </div>
     </div>
   );
-}
-
+};
 export default Login;

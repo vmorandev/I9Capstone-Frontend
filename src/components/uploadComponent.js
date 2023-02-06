@@ -1,13 +1,57 @@
 import { PlusOutlined } from "@ant-design/icons";
-import { Button, Form, Input, Select, Upload, Space, Breadcrumb } from "antd";
+import { Button, Form, Input, Select, Upload, Breadcrumb } from "antd";
 import { Col, Row } from "antd";
 //import "./uploadComponent.css";
 import { ReactComponent as Image } from "../assets/forms.svg";
+
+//import { upload } from "@testing-library/user-event/dist/upload";
 
 //import { useState } from "react";
 
 //Begins code for Upload Component.
 function UploadComponent() {
+  // const fileUploadProps = {
+  //   name: "file",
+  //   action: config.remote + "api/file",
+  //   method: "POST",
+  //   showUploadList: false,
+  //   headers: {
+  //     authorization: "authorization-text",
+  //     contentType: "multipart/form-data",
+  //   },
+  //   onChange(info) {
+  //     if (info.file.status === "done") {
+  //       const { response } = info.file;
+  //       updateProfile(response.payload.file);
+  //     } else if (info.file.status === "error") {
+  //       message.error("Error uploading the file");
+  //       props.endLoad();
+  //     }
+  //   },
+  //   beforeUpload(file) {
+  //     const isJpgOrPng =
+  //       file.type === "image/jpeg" || file.type === "image/png";
+  //     if (!isJpgOrPng) {
+  //       message.error("You can only upload JPG/PNG file!");
+  //     }
+  //     const isLt2M = file.size / 1024 / 1024 < 2;
+  //     const isGT20K = file.size / 1024 > 20;
+  //     if (!isLt2M) {
+  //       message.error("Image must smaller than 2MB!");
+  //     }
+  //     if (!isGT20K) {
+  //       message.error("Image must larger than 20KB!");
+  //     }
+
+  //     if (isJpgOrPng && isLt2M && isGT20K) {
+  //       props.startLoad();
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   },
+  // };
+
   return (
     <div className="top mt-5">
       {/*<Space direction="vertical horizontal"></Space>*/}
@@ -90,7 +134,11 @@ function UploadComponent() {
           </Col>
           <Col span={4} className="ms-4">
             <Form.Item valuePropName="fileList">
-              <Upload action="/upload.do" listType="button">
+              <Upload
+                //{...fileUploadProps}
+                action="/upload.do"
+                listType="button"
+              >
                 <div>
                   <PlusOutlined />
                   <div
